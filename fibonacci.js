@@ -5,8 +5,6 @@
 // IMPORTANTE: Esse número pode ser informado através de qualquer entrada de sua preferência ou pode ser previamente definido no código;
 const prompt = require('prompt-sync')();
 
-console.log('\nExecutando fibonacci.js');
-
 const numero = parseInt(prompt('Informe um número: '));
 
 let a = 0, b = 1, temp;
