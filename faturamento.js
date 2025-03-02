@@ -1,5 +1,24 @@
-// AGUARDANDO O ENVIO DO JSON.. 
-// NAO CHEGOU NADA NO EMAIL E TAMBÉM NÃO TINHA NADA NO ENUNCIADO, APENAS A QUESTÃO.
+const fs = require('fs');
+
+const dadosJson = fs.readFileSync('dados.json');
+const dados = JSON.parse(dadosJson);
+
+const faturamentos = dados.filter(dia => dia.valor > 0).map(dia => dia.valor);
+
+if (faturamentos.length > 0) {
+    const menorFaturamento = Math.min(...faturamentos);
+    const maiorFaturamento = Math.max(...faturamentos);
+    
+    const mediaMensal = faturamentos.reduce((acc, val) => acc + val, 0) / faturamentos.length;
+    
+    const diasAcimaDaMedia = faturamentos.filter(valor => valor > mediaMensal).length;
+    
+    console.log(`Menor faturamento do mês: ${menorFaturamento}`);
+    console.log(`Maior faturamento do mês: ${maiorFaturamento}`);
+    console.log(`Número de dias com faturamento acima da média: ${diasAcimaDaMedia}`);
+} else {
+    console.log("Não há dados de faturamento disponíveis para análise.");
+}
 
 // Dado um vetor que guarda o valor de faturamento diário de uma distribuidora, faça um programa, na linguagem que desejar, que calcule e retorne:
 // • O menor valor de faturamento ocorrido em um dia do mês;
