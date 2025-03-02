@@ -10,6 +10,5 @@ while (K < INDICE) {
 }
 console.log('Resultado da soma:', SOMA);
 
-// Resposta: 91 pois a variável SOMA é incrementada a cada iteração do loop até chegar na condição sendo K menor que INDICE. 
-// Somando o valor de K que também é incrementado a cada iteração. 
+// Resposta: 91 
 // O loop é executado 13 vezes, somando os valores de 1 a 13. O resultado é 91.
